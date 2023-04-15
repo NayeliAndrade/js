@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Botón en JavaScript</title>
+</head>
+<body>
+	<button id="myButton">Haz clic aquí</button>
+	<div id="nameContainer"></div>
+
+	<script>
+		const people = [
+		  {
+		    name: "Juan",
+		    lastname: "Villanueva",
+		    age: 30,
+		  },
+		  {
+		    name: "Luis",
+		    lastname: "Sandoval",
+		    age: 27,
+		  },
+		  {
+		    name: "Diana",
+		    lastname: "Ruiz",
+		    age: 29,
+		  },
+		];
+
+		let currentPersonIndex = 0;
+		const button = document.getElementById("myButton");
+		const nameContainer = document.getElementById("nameContainer");
+
+		button.addEventListener("click", function() {
+			// Obtiene el nombre de la persona actual
+			const currentPerson = people[currentPersonIndex].name;
+
+			// Crea un elemento de párrafo y lo agrega al contenedor
+			const newParagraph = document.createElement("p");
+			newParagraph.textContent = currentPerson;
+			nameContainer.appendChild(newParagraph);
+
+			// Actualiza el índice de la persona actual
+			currentPersonIndex++;
+
+			// Si hemos llegado al final del arreglo, reiniciamos el índice
+			if (currentPersonIndex >= people.length) {
+				currentPersonIndex = 0;
+			}
+		});
+	</script>
+</body>
+</html>
